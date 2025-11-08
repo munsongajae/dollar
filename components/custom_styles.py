@@ -17,6 +17,13 @@ def inject_custom_styles():
     html, body, [class*="css"] {{
         font-family: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
         background-color: {COLORS['background_secondary']};
+        font-size: 16px; /* 기본 폰트 크기 설정 */
+    }}
+    
+    /* 기본 텍스트 크기 */
+    p, span, div, label {{
+        font-size: 1rem; /* 16px */
+        line-height: 1.6;
     }}
     
     /* 메인 컨테이너 */
@@ -256,6 +263,16 @@ def inject_custom_styles():
     
     /* 모바일 (최대 768px) */
     @media (max-width: 768px) {{
+        /* 기본 폰트 크기 증가 */
+        html, body, [class*="css"] {{
+            font-size: 18px; /* 모바일에서 기본 폰트 크기 증가 */
+        }}
+        
+        /* 기본 텍스트 크기 */
+        p, span, div, label {{
+            font-size: 1.125rem; /* 18px */
+        }}
+        
         /* 메인 컨테이너 패딩 축소 */
         .main .block-container {{
             padding-top: 1rem;
@@ -264,35 +281,35 @@ def inject_custom_styles():
             padding-right: 1rem;
         }}
         
-        /* 제목 크기 축소 */
+        /* 제목 크기 유지/증가 */
         h1 {{
-            font-size: 1.75rem;
+            font-size: 2rem; /* 모바일에서도 크게 유지 */
             margin-bottom: 0.5rem;
         }}
         
         h2 {{
-            font-size: 1.5rem;
+            font-size: 1.75rem; /* 크게 유지 */
             margin-top: 1.5rem;
             margin-bottom: 0.75rem;
         }}
         
         h3 {{
-            font-size: 1.25rem;
+            font-size: 1.5rem; /* 크게 유지 */
             margin-top: 1rem;
             margin-bottom: 0.5rem;
         }}
         
-        /* 메트릭 값 크기 축소 */
+        /* 메트릭 값 크기 증가 */
         [data-testid="stMetricValue"] {{
-            font-size: 1.75rem;
+            font-size: 2.25rem !important; /* 모바일에서 더 크게 */
         }}
         
         [data-testid="stMetricLabel"] {{
-            font-size: 0.75rem;
+            font-size: 0.9375rem !important; /* 15px - 더 크게 */
         }}
         
         [data-testid="stMetricDelta"] {{
-            font-size: 0.875rem;
+            font-size: 1rem !important; /* 더 크게 */
         }}
         
         /* 카드 패딩 축소 */
@@ -305,7 +322,7 @@ def inject_custom_styles():
         .stButton > button {{
             min-height: 44px;
             padding: 12px 20px;
-            font-size: 0.9375rem; /* 15px - iOS 자동 확대 방지 */
+            font-size: 1rem !important; /* 16px - 더 크게 */
             border-radius: 10px;
         }}
         
@@ -314,7 +331,7 @@ def inject_custom_styles():
         .stNumberInput > div > div > input,
         .stSelectbox > div > div {{
             min-height: 44px;
-            font-size: 16px; /* iOS 자동 확대 방지 */
+            font-size: 18px !important; /* 모바일에서 더 크게 */
             padding: 12px;
         }}
         
@@ -326,7 +343,7 @@ def inject_custom_styles():
         
         .stTabs [data-baseweb="tab"] {{
             padding: 8px 10px;
-            font-size: 0.8125rem; /* 13px */
+            font-size: 0.9375rem !important; /* 15px - 더 크게 */
             white-space: nowrap;
             min-width: auto;
             flex: 1;
@@ -353,14 +370,33 @@ def inject_custom_styles():
             height: 350px !important;
         }}
         
-        /* 차트 내부 텍스트 크기 축소 */
+        /* 차트 내부 텍스트 크기 유지 */
         .js-plotly-plot text {{
-            font-size: 10px !important;
+            font-size: 12px !important; /* 차트 텍스트도 조금 더 크게 */
         }}
         
-        /* 차트 annotation 크기 축소 */
+        /* 차트 annotation 크기 유지 */
         .js-plotly-plot .annotation-text {{
-            font-size: 9px !important;
+            font-size: 11px !important; /* 차트 텍스트도 조금 더 크게 */
+        }}
+        
+        /* 테이블 텍스트 크기 증가 */
+        table, th, td {{
+            font-size: 0.9375rem !important; /* 15px */
+        }}
+        
+        /* Streamlit 기본 요소 텍스트 크기 */
+        .stMarkdown {{
+            font-size: 1.125rem !important; /* 18px */
+        }}
+        
+        .element-container {{
+            font-size: 1.125rem !important;
+        }}
+        
+        /* 카드 내부 텍스트 크기 */
+        .stCard p, .stCard span, .stCard div {{
+            font-size: 1.0625rem !important; /* 17px */
         }}
     }}
     

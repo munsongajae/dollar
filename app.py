@@ -156,23 +156,23 @@ def create_summary_indicators_tab():
     
     @media (max-width: 640px) {{
         .metric-label {{
-            font-size: 0.7rem;
+            font-size: 0.9375rem !important; /* 15px - 더 크게 */
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
         }}
         .metric-value {{
-            font-size: 1.1rem;
+            font-size: 1.75rem !important; /* 모바일에서도 크게 유지 */
         }}
         .metric-delta {{
-            font-size: 0.7rem;
+            font-size: 0.875rem !important; /* 14px - 더 크게 */
         }}
         .metric-box {{
-            padding: 0.75rem;
-            margin-bottom: 0.4rem;
+            padding: 1rem;
+            margin-bottom: 0.5rem;
         }}
         .exchange-rate-cell {{
-            padding: 0.25rem;
+            padding: 0.5rem;
         }}
     }}
     </style>
@@ -329,6 +329,21 @@ def create_summary_indicators_tab():
         font-weight: bold;
         font-size: 32px;
     }
+    
+    /* 모바일에서 테이블 글씨 크기 증가 */
+    @media (max-width: 768px) {
+        .signal-o, .signal-x {
+            font-size: 28px !important; /* 모바일에서도 크게 유지 */
+        }
+        table th {
+            font-size: 16px !important; /* 헤더 글씨 크기 */
+            padding: 12px 8px !important;
+        }
+        table td {
+            font-size: 15px !important; /* 셀 글씨 크기 */
+            padding: 12px 8px !important;
+        }
+    }
     </style>
     """, unsafe_allow_html=True)
     
@@ -346,7 +361,7 @@ def create_summary_indicators_tab():
                 html_table += f"<td style='padding: 15px; text-align: center; font-weight: bold; font-size: 16px;'>{val}</td>"
             else:  # O/X 열
                 color_class = "signal-o" if val == "O" else "signal-x" if val == "X" else ""
-                html_table += f"<td style='padding: 15px; text-align: center;'><span class='{color_class}'>{val}</span></td>"
+                html_table += f"<td style='padding: 15px; text-align: center; font-size: 16px;'><span class='{color_class}'>{val}</span></td>"
         html_table += "</tr>"
     
     html_table += "</tbody></table>"
@@ -384,7 +399,7 @@ def create_summary_indicators_tab():
                 html_table += f"<td style='padding: 15px; text-align: center; font-weight: bold; font-size: 16px;'>{val}</td>"
             else:  # O/X 열
                 color_class = "signal-o" if val == "O" else "signal-x" if val == "X" else ""
-                html_table += f"<td style='padding: 15px; text-align: center;'><span class='{color_class}'>{val}</span></td>"
+                html_table += f"<td style='padding: 15px; text-align: center; font-size: 16px;'><span class='{color_class}'>{val}</span></td>"
         html_table += "</tr>"
     
     html_table += "</tbody></table>"
